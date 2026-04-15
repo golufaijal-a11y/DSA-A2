@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* input_array(int* size, int* max_size) {
+    int *arr = (int*) malloc((*max_size) * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed!\n");
+        exit(1);
+    }
+
+    int num, i = 0;
+    printf("Enter elements (negative number to stop):\n");
+    while (i < *max_size) {
+        scanf("%d", &num);
+        if (num < 0) break;
+        *(arr + i) = num;
+        i++;
+    }
+    *size = i;
+    return arr;
+}
