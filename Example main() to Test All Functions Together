@@ -1,0 +1,23 @@
+int main() {
+    int size, max_size = 100;
+    int *arr = input_array(&size, &max_size);
+
+    printf("\nOriginal Array:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", *(arr + i));
+    }
+
+    reverse_array(arr, &size);
+    printf("\nReversed Array:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", *(arr + i));
+    }
+
+    if (check_unique_array(arr, &size))
+        printf("\nAll elements are unique.\n");
+    else
+        printf("\nDuplicates found in array.\n");
+
+    free(arr);
+    return 0;
+}
